@@ -1,0 +1,2200 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="สัมผัสประสบการณ์กาแฟพิเศษระดับไฮเอนด์ รังสรรค์ด้วยความใส่ใจ ชงอย่างพิถีพิถัน สั่งซื้อเมล็ดกาแฟและเครื่องดื่มล่วงหน้าได้เลย">
+  <title>Origins Specialty Coffee - รังสรรค์ด้วยใจรัก ชงอย่างประณีต</title>
+  
+  <!-- Google Fonts: Playfair Display & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* -------------------------------------------------------------
+       DESIGN SYSTEM & CSS VARIABLES
+       ------------------------------------------------------------- */
+    :root {
+      /* Primary Brand Colors */
+      --color-primary: #3E2723;       /* Warm Espresso Brown */
+      --color-primary-rgb: 62, 39, 35;
+      --color-secondary: #8D6E63;     /* Smooth Caramel */
+      --color-accent: #D7CCC8;        /* Latte Cream */
+      --color-accent-gold: #D4AF37;   /* Rich Gold */
+      
+      /* Backgrounds & Canvas */
+      --color-bg-light: #FAF8F6;      /* Soft Ivory */
+      --color-bg-card: #FFFFFF;
+      --color-bg-dark: #1E1510;       /* Dark Rich Charcoal/Brown */
+      --color-bg-dark-rgb: 30, 21, 16;
+      
+      /* Text */
+      --color-text-dark: #2C1E18;     /* Deep Espresso Text */
+      --color-text-muted: #6D5C56;    /* Warm Muted Brown */
+      --color-text-light: #FAF8F6;    /* Light Cream Text */
+      --color-text-accent: #D4AF37;   /* Gold Accent Text */
+      
+      /* Borders & Shadows */
+      --border-radius-sm: 8px;
+      --border-radius-md: 16px;
+      --border-radius-lg: 24px;
+      --border-radius-pill: 9999px;
+      
+      --shadow-sm: 0 2px 8px rgba(62, 39, 35, 0.05);
+      --shadow-md: 0 8px 24px rgba(62, 39, 35, 0.08);
+      --shadow-lg: 0 16px 40px rgba(62, 39, 35, 0.12);
+      --shadow-glow: 0 0 15px rgba(212, 175, 55, 0.4);
+      
+      /* Fonts */
+      --font-headings: 'Playfair Display', 'Sarabun', serif;
+      --font-body: 'Inter', 'Sarabun', sans-serif;
+      
+      /* Accessibility high contrast defaults (toggled dynamically) */
+      --focus-outline: 3px solid var(--color-secondary);
+    }
+
+    /* Colorblindness & Accessibility Mode Override (Black and White Grayscale) */
+    body.colorblind-mode {
+      --color-primary: #1A1A1A;
+      --color-secondary: #555555;
+      --color-accent: #CCCCCC;
+      --color-accent-gold: #FFFFFF;
+      --color-bg-light: #FFFFFF;
+      --color-bg-card: #FAFAFA;
+      --color-bg-dark: #000000;
+      --color-text-dark: #000000;
+      --color-text-muted: #444444;
+      --color-text-light: #FFFFFF;
+      --color-text-accent: #FFFFFF;
+      --shadow-glow: 0 0 15px rgba(255, 255, 255, 0.5);
+      filter: grayscale(100%) contrast(125%);
+    }
+
+    /* -------------------------------------------------------------
+       GLOBAL STYLES & RESET
+       ------------------------------------------------------------- */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--color-bg-light);
+      color: var(--color-text-dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: var(--font-headings);
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.3s ease;
+    }
+
+    button, input, select {
+      font-family: inherit;
+    }
+
+    button:focus-visible, a:focus-visible {
+      outline: var(--focus-outline);
+      outline-offset: 4px;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Section Utility */
+    .section {
+      padding: 100px 0;
+    }
+
+    .section-title-wrap {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-subtitle {
+      font-family: var(--font-body);
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--color-secondary);
+      font-weight: 600;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .section-title {
+      font-size: clamp(32px, 4vw, 44px);
+      color: var(--color-primary);
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 3px;
+      background: var(--color-secondary);
+      margin: 16px auto 0 auto;
+      border-radius: 2px;
+    }
+
+    /* -------------------------------------------------------------
+       BUTTONS & MICRO-ANIMATIONS
+       ------------------------------------------------------------- */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 28px;
+      border-radius: var(--border-radius-pill);
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      border: none;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.1);
+      transform: translateY(100%);
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: -1;
+    }
+
+    .btn:hover::before {
+      transform: translateY(0);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .btn:active {
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background-color: var(--color-primary);
+      color: var(--color-text-light);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn-primary:hover {
+      box-shadow: 0 8px 20px rgba(62, 39, 35, 0.3);
+    }
+
+    .btn-secondary {
+      background-color: transparent;
+      color: var(--color-primary);
+      border: 2px solid var(--color-primary);
+    }
+
+    .btn-secondary:hover {
+      background-color: var(--color-primary);
+      color: var(--color-text-light);
+    }
+
+    .btn-accent {
+      background-color: var(--color-accent-gold);
+      color: var(--color-bg-dark);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn-accent:hover {
+      box-shadow: var(--shadow-glow);
+    }
+
+    .btn svg {
+      width: 18px;
+      height: 18px;
+      transition: transform 0.3s ease;
+    }
+
+    .btn:hover svg {
+      transform: translateX(3px);
+    }
+
+    /* -------------------------------------------------------------
+       SKELETON LOADER
+       ------------------------------------------------------------- */
+    #skeleton-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: var(--color-bg-light);
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      padding: 40px 24px;
+      overflow-y: auto;
+    }
+
+    .sk-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .sk-pulse {
+      background: linear-gradient(90deg, #e0dbd7 25%, #ece8e5 50%, #e0dbd7 75%);
+      background-size: 200% 100%;
+      animation: sk-loading 1.5s infinite;
+      border-radius: var(--border-radius-sm);
+    }
+
+    @keyframes sk-loading {
+      0% {
+        background-position: 200% 0;
+      }
+      100% {
+        background-position: -200% 0;
+      }
+    }
+
+    .sk-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 60px;
+    }
+
+    .sk-logo {
+      width: 150px;
+      height: 40px;
+    }
+
+    .sk-nav {
+      display: flex;
+      gap: 24px;
+    }
+
+    .sk-nav-item {
+      width: 80px;
+      height: 20px;
+    }
+
+    .sk-hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      margin-bottom: 100px;
+    }
+
+    .sk-hero-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .sk-hero-title {
+      width: 80%;
+      height: 50px;
+      border-radius: var(--border-radius-md);
+    }
+
+    .sk-hero-subtitle {
+      width: 95%;
+      height: 18px;
+    }
+
+    .sk-hero-subtitle-2 {
+      width: 70%;
+      height: 18px;
+    }
+
+    .sk-hero-btn {
+      width: 160px;
+      height: 48px;
+      border-radius: var(--border-radius-pill);
+      margin-top: 20px;
+    }
+
+    .sk-hero-right {
+      height: 400px;
+      border-radius: var(--border-radius-lg);
+    }
+
+    .sk-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 30px;
+      margin-bottom: 80px;
+    }
+
+    .sk-card {
+      height: 380px;
+      border-radius: var(--border-radius-md);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      background: white;
+      border: 1px solid #efeae6;
+    }
+
+    .sk-card-img {
+      height: 160px;
+      border-radius: var(--border-radius-sm);
+    }
+
+    .sk-card-title {
+      width: 60%;
+      height: 24px;
+    }
+
+    .sk-card-text {
+      width: 90%;
+      height: 14px;
+    }
+
+    @media (max-width: 768px) {
+      .sk-hero {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+      .sk-hero-right {
+        height: 250px;
+      }
+      .sk-nav {
+        display: none;
+      }
+    }
+
+    /* Hide Content While Loading */
+    .app-hidden {
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+    }
+
+    .app-visible {
+      opacity: 1;
+    }
+
+    /* -------------------------------------------------------------
+       NAVIGATION HEADER
+       ------------------------------------------------------------- */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(250, 248, 246, 0.9);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      z-index: 1000;
+      box-shadow: 0 1px 0 rgba(62, 39, 35, 0.05);
+      transition: all 0.3s ease;
+    }
+
+    header.scrolled {
+      padding: 10px 0;
+      background-color: rgba(250, 248, 246, 0.95);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .nav-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 80px;
+      transition: height 0.3s ease;
+    }
+
+    header.scrolled .nav-wrapper {
+      height: 60px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--color-primary);
+      font-family: var(--font-headings);
+    }
+
+    .logo svg {
+      width: 28px;
+      height: 28px;
+      fill: var(--color-primary);
+    }
+
+    .nav-menu {
+      display: flex;
+      list-style: none;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .nav-link {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--color-text-dark);
+      position: relative;
+      padding: 8px 0;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--color-secondary);
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .nav-link:hover {
+      color: var(--color-secondary);
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--color-primary);
+    }
+
+    .menu-toggle svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    @media (max-width: 768px) {
+      .nav-menu {
+        position: fixed;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 80px);
+        background-color: var(--color-bg-light);
+        flex-direction: column;
+        justify-content: center;
+        gap: 40px;
+        transform: translateX(-100%);
+        transition: transform 0.4s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+        box-shadow: var(--shadow-lg);
+      }
+
+      header.scrolled .nav-menu {
+        top: 60px;
+        height: calc(100vh - 60px);
+      }
+
+      .nav-menu.active {
+        transform: translateX(0);
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+    }
+
+    /* -------------------------------------------------------------
+       HERO SECTION
+       ------------------------------------------------------------- */
+    .hero {
+      position: relative;
+      padding: 160px 0 100px 0;
+      background: linear-gradient(135deg, #F5EFEA 0%, #FAF8F6 100%);
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -10%;
+      right: -10%;
+      width: 40%;
+      height: 50%;
+      background: radial-gradient(circle, rgba(141, 110, 99, 0.08) 0%, transparent 70%);
+      z-index: 0;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 60px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-content {
+      max-width: 600px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      background-color: rgba(141, 110, 99, 0.1);
+      border-radius: var(--border-radius-pill);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--color-primary);
+      margin-bottom: 24px;
+    }
+
+    .hero-badge svg {
+      width: 14px;
+      height: 14px;
+      fill: var(--color-primary);
+    }
+
+    .hero-title {
+      font-size: clamp(36px, 4.5vw, 54px);
+      color: var(--color-primary);
+      margin-bottom: 24px;
+      letter-spacing: -0.5px;
+    }
+
+    .hero-title span {
+      font-family: var(--font-body);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--color-secondary);
+      display: block;
+      font-size: 0.9em;
+      margin-top: 5px;
+    }
+
+    .hero-desc {
+      font-size: clamp(15px, 1.8vw, 17px);
+      color: var(--color-text-muted);
+      margin-bottom: 40px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .hero-image-container {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-image-wrapper {
+      position: relative;
+      border-radius: 40% 60% 60% 40% / 50% 40% 60% 50%;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      aspect-ratio: 1;
+      width: 100%;
+      max-width: 450px;
+      animation: float-shape 12s ease-in-out infinite alternate;
+      border: 4px solid var(--color-accent);
+    }
+
+    @keyframes float-shape {
+      0% {
+        border-radius: 40% 60% 60% 40% / 50% 40% 60% 50%;
+      }
+      50% {
+        border-radius: 55% 45% 55% 45% / 45% 55% 45% 55%;
+      }
+      100% {
+        border-radius: 45% 55% 40% 60% / 60% 45% 55% 40%;
+      }
+    }
+
+    .hero-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .hero-image-wrapper:hover .hero-img {
+      transform: scale(1.05);
+    }
+
+    /* Floating stat card overlay */
+    .hero-stat-card {
+      position: absolute;
+      bottom: 20px;
+      left: -20px;
+      background-color: var(--color-bg-card);
+      border-radius: var(--border-radius-md);
+      padding: 16px;
+      box-shadow: var(--shadow-md);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border: 1px solid rgba(141, 110, 99, 0.15);
+      animation: float-card 6s ease-in-out infinite alternate;
+    }
+
+    @keyframes float-card {
+      0% {
+        transform: translateY(0);
+      }
+      100% {
+        transform: translateY(-10px);
+      }
+    }
+
+    .hero-stat-icon {
+      background-color: rgba(62, 39, 35, 0.08);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-primary);
+    }
+
+    .hero-stat-icon svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .hero-stat-info h4 {
+      font-size: 14px;
+      color: var(--color-text-dark);
+    }
+
+    .hero-stat-info p {
+      font-size: 11px;
+      color: var(--color-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    @media (max-width: 991px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+      }
+      .hero-content {
+        text-align: center;
+        margin: 0 auto;
+      }
+      .hero-actions {
+        justify-content: center;
+      }
+      .hero-image-container {
+        max-width: 400px;
+        margin: 0 auto;
+      }
+      .hero-stat-card {
+        left: 10px;
+      }
+    }
+
+    /* -------------------------------------------------------------
+       COFFEE BEANS SECTION
+       ------------------------------------------------------------- */
+    .beans {
+      background-color: var(--color-bg-light);
+      position: relative;
+    }
+
+    .beans-intro {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 50px;
+      align-items: center;
+      margin-bottom: 60px;
+    }
+
+    .beans-intro-left {
+      max-width: 450px;
+    }
+
+    .beans-intro-left p {
+      color: var(--color-text-muted);
+      margin-bottom: 24px;
+    }
+
+    .beans-banner-wrapper {
+      border-radius: var(--border-radius-lg);
+      overflow: hidden;
+      height: 260px;
+      box-shadow: var(--shadow-md);
+      position: relative;
+    }
+
+    .beans-banner-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .beans-banner-wrapper:hover .beans-banner-img {
+      transform: scale(1.03);
+    }
+
+    .beans-banner-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 24px;
+      background: linear-gradient(to top, rgba(30, 21, 16, 0.8) 0%, rgba(30, 21, 16, 0) 100%);
+      color: var(--color-text-light);
+    }
+
+    .beans-banner-overlay h3 {
+      font-size: 20px;
+      margin-bottom: 4px;
+    }
+
+    .beans-banner-overlay p {
+      font-size: 13px;
+      opacity: 0.9;
+    }
+
+    .beans-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 30px;
+    }
+
+    .bean-card {
+      background-color: var(--color-bg-card);
+      border-radius: var(--border-radius-md);
+      padding: 28px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(141, 110, 99, 0.08);
+      display: flex;
+      flex-direction: column;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+    }
+
+    .bean-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-md);
+      border-color: rgba(141, 110, 99, 0.2);
+    }
+
+    .bean-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 12px;
+    }
+
+    .bean-origin {
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--color-secondary);
+      margin-bottom: 4px;
+      display: block;
+    }
+
+    .bean-title {
+      font-size: 22px;
+      color: var(--color-primary);
+    }
+
+    .bean-elevation {
+      font-size: 12px;
+      color: var(--color-text-muted);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .bean-elevation svg {
+      width: 12px;
+      height: 12px;
+      fill: var(--color-text-muted);
+    }
+
+    /* Roast Level Selection UI */
+    .roast-control {
+      margin-bottom: 20px;
+    }
+
+    .roast-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--color-text-muted);
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .roast-buttons {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      background-color: var(--color-bg-light);
+      padding: 4px;
+      border-radius: var(--border-radius-sm);
+    }
+
+    .roast-btn {
+      background: none;
+      border: none;
+      padding: 8px 4px;
+      font-size: 11px;
+      font-weight: 600;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: all 0.2s ease;
+      color: var(--color-text-muted);
+      text-align: center;
+    }
+
+    .roast-btn:hover {
+      color: var(--color-primary);
+    }
+
+    .roast-btn.active {
+      background-color: var(--color-primary);
+      color: var(--color-text-light);
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* Dynamic Tasting Notes Display */
+    .tasting-box {
+      background-color: #FAF8F6;
+      border-left: 3px solid var(--color-secondary);
+      padding: 12px 16px;
+      border-radius: 0 var(--border-radius-sm) var(--border-radius-sm) 0;
+      margin-bottom: 24px;
+      flex-grow: 1;
+    }
+
+    .tasting-desc {
+      font-size: 13px;
+      font-style: italic;
+      color: var(--color-text-dark);
+      transition: opacity 0.2s ease;
+    }
+
+    .bean-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: auto;
+      padding-top: 16px;
+      border-top: 1px solid rgba(141, 110, 99, 0.08);
+    }
+
+    .bean-price {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--color-primary);
+    }
+
+    .bean-price span {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--color-text-muted);
+    }
+
+    @media (max-width: 991px) {
+      .beans-intro {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+      .beans-intro-left {
+        max-width: 100%;
+        text-align: center;
+      }
+      .beans-banner-wrapper {
+        height: 200px;
+      }
+    }
+
+    /* -------------------------------------------------------------
+       DRINKS & MATCHA MENU SECTION
+       ------------------------------------------------------------- */
+    .menu {
+      background-color: var(--color-bg-dark);
+      color: var(--color-text-light);
+      position: relative;
+    }
+
+    .menu::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 30%;
+      height: 40%;
+      background: radial-gradient(circle, rgba(141, 110, 99, 0.05) 0%, transparent 70%);
+      z-index: 0;
+    }
+
+    .menu .section-title {
+      color: var(--color-text-light);
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 30px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .menu-card {
+      background-color: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: var(--border-radius-md);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+
+    .menu-card:hover {
+      transform: translateY(-6px);
+      background-color: rgba(255, 255, 255, 0.06);
+      border-color: rgba(212, 175, 55, 0.2);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .menu-icon-wrapper {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(141, 110, 99, 0.2) 0%, rgba(141, 110, 99, 0.05) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-accent-gold);
+      border: 1px solid rgba(141, 110, 99, 0.15);
+    }
+
+    .menu-icon-wrapper svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .menu-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .menu-card-title {
+      font-size: 20px;
+      color: var(--color-text-light);
+      margin-bottom: 4px;
+    }
+
+    .menu-card-desc {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .menu-card-price {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--color-accent-gold);
+      white-space: nowrap;
+    }
+
+    .menu-card-footer {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: auto;
+      padding-top: 12px;
+    }
+
+    .btn-menu-order {
+      background-color: rgba(255, 255, 255, 0.08);
+      color: var(--color-text-light);
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s ease;
+    }
+
+    .btn-menu-order:hover {
+      background-color: var(--color-accent-gold);
+      color: var(--color-bg-dark);
+      transform: scale(1.1);
+    }
+
+    .btn-menu-order svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    /* -------------------------------------------------------------
+       PRE-ORDER HIGH-IMPACT BANNER
+       ------------------------------------------------------------- */
+    .cta-banner {
+      background: linear-gradient(135deg, var(--color-primary) 0%, #261613 100%);
+      color: var(--color-text-light);
+      padding: 80px 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-banner::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(141, 110, 99, 0.15) 0%, transparent 60%);
+      z-index: 0;
+    }
+
+    .cta-banner-content {
+      position: relative;
+      z-index: 1;
+      max-width: 650px;
+      margin: 0 auto;
+    }
+
+    .cta-banner h2 {
+      font-size: clamp(28px, 4vw, 40px);
+      margin-bottom: 16px;
+    }
+
+    .cta-banner p {
+      font-size: clamp(14px, 2vw, 16px);
+      opacity: 0.85;
+      margin-bottom: 36px;
+      font-weight: 300;
+    }
+
+    .cta-line-btn {
+      background-color: #06C755; /* Official LINE Green */
+      color: white;
+      padding: 16px 36px;
+      font-size: 16px;
+      font-weight: 700;
+      box-shadow: 0 4px 15px rgba(6, 199, 85, 0.3);
+    }
+
+    .cta-line-btn:hover {
+      background-color: #05B04B;
+      box-shadow: 0 8px 25px rgba(6, 199, 85, 0.5);
+    }
+
+    /* -------------------------------------------------------------
+       FOOTER
+       ------------------------------------------------------------- */
+    footer {
+      background-color: #120B08;
+      color: rgba(255, 255, 255, 0.7);
+      padding: 80px 0 30px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1.5fr;
+      gap: 60px;
+      margin-bottom: 60px;
+    }
+
+    .footer-col h3 {
+      color: var(--color-text-light);
+      font-size: 18px;
+      margin-bottom: 24px;
+      font-family: var(--font-body);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .footer-about .logo {
+      color: var(--color-text-light);
+      margin-bottom: 20px;
+    }
+
+    .footer-about .logo svg {
+      fill: var(--color-text-light);
+    }
+
+    .footer-about p {
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .footer-links-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-links-list a {
+      font-size: 14px;
+    }
+
+    .footer-links-list a:hover {
+      color: var(--color-accent-gold);
+      padding-left: 5px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 16px;
+      font-size: 14px;
+    }
+
+    .contact-item svg {
+      width: 18px;
+      height: 18px;
+      color: var(--color-accent-gold);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .social-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.05);
+      color: var(--color-text-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .social-btn:hover {
+      background-color: var(--color-accent-gold);
+      color: var(--color-bg-dark);
+      transform: translateY(-3px);
+    }
+
+    .social-btn svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    /* Accessibility / Colorblind Toggle Styling */
+    .accessibility-box {
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .accessibility-title {
+      font-size: 13px;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.5);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .accessibility-title svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .toggle-switch {
+      position: relative;
+      display: inline-block;
+      width: 50px;
+      height: 24px;
+    }
+
+    .toggle-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(255, 255, 255, 0.1);
+      transition: .4s;
+      border-radius: 34px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 16px;
+      width: 16px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      transition: .4s;
+      border-radius: 50%;
+    }
+
+    input:checked + .slider {
+      background-color: var(--color-accent-gold);
+    }
+
+    input:checked + .slider:before {
+      transform: translateX(26px);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding-top: 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.4);
+    }
+
+    /* -------------------------------------------------------------
+       ACCESSIBILITY FLOATING WIDGET
+       ------------------------------------------------------------- */
+    .accessibility-floating-btn {
+      position: fixed;
+      bottom: 24px;
+      left: 24px;
+      z-index: 999;
+      background-color: var(--color-primary);
+      color: var(--color-text-light);
+      border: 2px solid var(--color-accent);
+      padding: 12px 20px;
+      border-radius: var(--border-radius-pill);
+      font-size: 13px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: var(--shadow-lg);
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .accessibility-floating-btn:hover {
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 8px 25px rgba(62, 39, 35, 0.3);
+      background-color: var(--color-secondary);
+    }
+
+    .accessibility-floating-btn svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    @media (max-width: 576px) {
+      .accessibility-floating-btn {
+        bottom: 16px;
+        left: 16px;
+        padding: 10px 16px;
+        font-size: 12px;
+      }
+    }
+
+    @media (max-width: 991px) {
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating Accessibility Button -->
+  <button id="floating-accessibility-btn" class="accessibility-floating-btn" aria-label="เปิดโหมดตาบอดสี (ขาวดำ)">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+      <circle cx="12" cy="12" r="3"></circle>
+    </svg>
+    <span id="floating-accessibility-text">โหมดตาบอดสี (ขาว-ดำ)</span>
+  </button>
+
+  <!-- -------------------------------------------------------------
+       SKELETON LOADING SCREEN
+       ------------------------------------------------------------- -->
+  <div id="skeleton-screen">
+    <div class="sk-container">
+      <div class="sk-header">
+        <div class="sk-pulse sk-logo"></div>
+        <div class="sk-nav">
+          <div class="sk-pulse sk-nav-item"></div>
+          <div class="sk-pulse sk-nav-item"></div>
+          <div class="sk-pulse sk-nav-item"></div>
+          <div class="sk-pulse sk-nav-item"></div>
+        </div>
+      </div>
+      <div class="sk-hero">
+        <div class="sk-hero-left">
+          <div class="sk-pulse sk-hero-title"></div>
+          <div class="sk-pulse sk-hero-subtitle"></div>
+          <div class="sk-pulse sk-hero-subtitle-2"></div>
+          <div class="sk-pulse sk-hero-btn"></div>
+        </div>
+        <div class="sk-pulse sk-hero-right"></div>
+      </div>
+      <div class="sk-grid">
+        <div class="sk-card">
+          <div class="sk-pulse sk-card-img"></div>
+          <div class="sk-pulse sk-card-title"></div>
+          <div class="sk-pulse sk-card-text"></div>
+        </div>
+        <div class="sk-pulse sk-card">
+          <div class="sk-pulse sk-card-img"></div>
+          <div class="sk-pulse sk-card-title"></div>
+          <div class="sk-pulse sk-card-text"></div>
+        </div>
+        <div class="sk-pulse sk-card">
+          <div class="sk-pulse sk-card-img"></div>
+          <div class="sk-pulse sk-card-title"></div>
+          <div class="sk-pulse sk-card-text"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- -------------------------------------------------------------
+       MAIN APPLICATION CONTENT (Fades in)
+       ------------------------------------------------------------- -->
+  <div id="app-content" class="app-hidden">
+    
+    <!-- NAVIGATION -->
+    <header id="main-header">
+      <div class="container nav-wrapper">
+        <a href="#" class="logo">
+          <!-- Coffee beans Logo Icon -->
+          <svg viewBox="0 0 512 512">
+            <path d="M125.7 34.6c-17.5 10.1-31.9 26.8-39 46.8-8.2 22.8-5.3 48.5 7.4 69.8 17 28.5 46.8 47.9 79.5 51.8 12.3 1.5 24.8 .7 36.9-2.3L125.7 34.6zM224 81.3v132.8c12.2-4.5 23.6-11.8 33.3-21.5l-33.3-111.3zm120-19c-11-9-23.7-15.6-37.4-19.4L293.3 154c16.3-2.7 32-9.8 45-20.8 13.9-11.8 23.1-28.7 25.4-46.9 2.3-18.2-2.7-36.4-13.7-50.6l-6-7.4zm10.7 131c-13.6 11.5-30.5 18.7-48.4 20.8L350.5 358c21.2-5.7 40-18.4 53-35.8 17.5-23.4 23.5-53.4 16.5-82.1-7-28.7-25-53.2-49.8-67.6l-5.5-3.2zm-182 176.4c-12.8 1.5-25.7 .3-38-3.6L201 475.6c17.5-10.1 31.9-26.8 39-46.8 8.2-22.8 5.3-48.5-7.4-69.8-17-28.5-46.8-47.9-79.5-51.8zm33.3 21l33.3 111.3c11 9 23.7 15.6 37.4 19.4L262.7 358c-16.3 2.7-32 9.8-45 20.8-13.9 11.8-23.1 28.7-25.4 46.9-2.3 18.2 2.7 36.4 13.7 50.6l6 7.4c13.6-11.5 30.5-18.7 48.4-20.8l-42.1-144.3z"/>
+          </svg>
+          Origins Coffee
+        </a>
+        <nav>
+          <ul class="nav-menu" id="nav-menu">
+            <li><a href="#" class="nav-link">หน้าแรก</a></li>
+            <li><a href="#beans" class="nav-link">เมล็ดกาแฟคั่วพิเศษ</a></li>
+            <li><a href="#menu" class="nav-link">เมนูเครื่องดื่ม</a></li>
+            <li><a href="#visit" class="nav-link">ที่ตั้งร้าน</a></li>
+            <li>
+              <a href="https://line.me/R/ti/p/@aiceo" target="_blank" rel="noopener noreferrer" class="btn btn-primary" id="nav-preorder-btn">
+                <span>สั่งซื้อล่วงหน้า</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 2L2 22h20L12 2zm0 3.99L19.53 19H4.47L12 5.99zM13 16h-2v2h2v-2zm0-6h-2v4h2v-4z"/>
+            </svg>
+            <span>โรงคั่วกาแฟขนาดเล็กระดับรางวัล</span>
+          </div>
+          <h1 class="hero-title">
+            รังสรรค์ด้วยใจรัก
+            <span>ชงอย่างประณีตสู่ความสมบูรณ์แบบ</span>
+          </h1>
+          <p class="hero-desc">
+            ยินดีต้อนรับสู่การเดินทางแห่งรสสัมผัส เมล็ดกาแฟทุกเมล็ดถูกคัดสรรด้วยมือจากแหล่งปลูกที่ยั่งยืน คั่วสูตรพิเศษในโรงคั่วของเราเอง และสกัดอย่างพิถีพิถันเพื่อดึงเอกลักษณ์เฉพาะตัวของแต่ละแหล่งปลูกออกมา
+          </p>
+          <div class="hero-actions">
+            <a href="#menu" class="btn btn-primary">
+              <span>ดูเมนูเครื่องดื่ม</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+            <a href="#beans" class="btn btn-secondary">
+              <span>คอลเลกชันเมล็ดกาแฟ</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <path d="M16 10a4 4 0 0 1-8 0"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="hero-image-container">
+          <div class="hero-image-wrapper">
+            <img src="assets/hero_coffee.png" alt="บาริสต้ากำลังทำกาแฟดริปแบบพิเศษโดยใช้กาดริปคอห่านและกรวยดริป V60 แก้ว" class="hero-img" width="450" height="450">
+          </div>
+          <!-- Floating Stat Card overlay -->
+          <div class="hero-stat-card">
+            <div class="hero-stat-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+            </div>
+            <div class="hero-stat-info">
+              <h4>ตรวจสอบแหล่งที่มาได้ 100%</h4>
+              <p>คู่ค้า Direct Trade โดยตรง</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COFFEE BEANS SECTION -->
+    <section class="section beans" id="beans">
+      <div class="container">
+        
+        <div class="beans-intro">
+          <div class="beans-intro-left">
+            <span class="section-subtitle">เมล็ดกาแฟ Single Origin คัดสรร</span>
+            <h2 class="section-title">เมล็ดกาแฟคั่วพิเศษเกรดพรีเมียม</h2>
+            <p style="margin-top: 20px;">เราสรรหาเมล็ดกาแฟดิบโดยตรงจากเกษตรกรผู้ใส่ใจจากทั่วทุกมุมโลก เลือกโปรไฟล์การคั่วด้านล่างเพื่อเรียนรู้ว่ารสชาติของเมล็ดกาแฟเปลี่ยนไปอย่างไรตั้งแต่คั่วอ่อนไปจนถึงคั่วเข้ม</p>
+          </div>
+          <div class="beans-banner-wrapper">
+            <img src="assets/beans_coffee.png" alt="เมล็ดกาแฟคั่วพิเศษเรียงรายอย่างสวยงามแสดงโทนสีคั่วเข้มคั่วอ่อนต่างๆ" class="beans-banner-img">
+            <div class="beans-banner-overlay">
+              <h3>คั่วสดใหม่ทุกสัปดาห์</h3>
+              <p>คั่วจำนวนน้อยและควบคุมด้วยเครื่องวัดสี (Colorimetry) เพื่อความแม่นยำของรสชาติขั้นสุด</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="beans-grid">
+          
+          <!-- BEAN CARD 1 -->
+          <div class="bean-card" id="bean-1">
+            <div class="bean-header">
+              <div>
+                <span class="bean-origin">เอธิโอเปีย (Ethiopia)</span>
+                <h3 class="bean-title">Yirgacheffe Kochere</h3>
+              </div>
+            </div>
+            <div class="bean-elevation">
+              <svg viewBox="0 0 24 24"><path d="M14 6l-1-2H5v17h2v-7h5l1 2h7V6h-6zm4 8h-4l-1-2H7V6h5l1 2h5v6z"/></svg>
+              <span>เขต Gedeo | ความสูง 1,900ม - 2,100ม</span>
+            </div>
+            
+            <div class="roast-control">
+              <span class="roast-label">เลือกโปรไฟล์การคั่ว</span>
+              <div class="roast-buttons">
+                <button class="roast-btn active" data-roast="light" data-notes="กลิ่นดอกมะลิหอมฟุ้ง, มะกรูดสดชื่น, ผิวมะนาว, บอดี้ชาดำ ความสะอาดของรสชาติดีเยี่ยม">คั่วอ่อน</button>
+                <button class="roast-btn" data-roast="medium" data-notes="ดอกส้ม, ลูกพีชเคลือบน้ำผึ้ง, ความหวานคล้ายน้ำอ้อยสะอาด, ปิดท้ายด้วยมิลค์ช็อกโกแลตบางเบา">คั่วกลาง</button>
+                <button class="roast-btn" data-roast="dark" data-notes="ส้มคาราเมลเข้มข้น, คาเคานิบส์, บอดี้หนักแน่น, รสหวานของน้ำตาลทรายแดงไหม้">คั่วเข้ม</button>
+              </div>
+            </div>
+
+            <div class="tasting-box">
+              <span class="roast-label">บันทึกรสชาติ (Tasting Notes)</span>
+              <p class="tasting-desc" id="tasting-desc-1">กลิ่นดอกมะลิหอมฟุ้ง, มะกรูดสดชื่น, ผิวมะนาว, บอดี้ชาดำ ความสะอาดของรสชาติดีเยี่ยม</p>
+            </div>
+
+            <div class="bean-footer">
+              <div class="bean-price">฿650 <span>/ 250 กรัม</span></div>
+              <a href="https://line.me/R/ti/p/@aiceo" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="padding: 10px 20px;">
+                <span>สั่งซื้อล่วงหน้า</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- BEAN CARD 2 -->
+          <div class="bean-card" id="bean-2">
+            <div class="bean-header">
+              <div>
+                <span class="bean-origin">โคลอมเบีย (Colombia)</span>
+                <h3 class="bean-title">Finca El Paraiso</h3>
+              </div>
+            </div>
+            <div class="bean-elevation">
+              <svg viewBox="0 0 24 24"><path d="M14 6l-1-2H5v17h2v-7h5l1 2h7V6h-6zm4 8h-4l-1-2H7V6h5l1 2h5v6z"/></svg>
+              <span>รัฐ Cauca | ความสูง 1,700ม - 1,930ม</span>
+            </div>
+            
+            <div class="roast-control">
+              <span class="roast-label">เลือกโปรไฟล์การคั่ว</span>
+              <div class="roast-buttons">
+                <button class="roast-btn" data-roast="light" data-notes="กลิ่นหอมโยเกิร์ตสตรอว์เบอร์รี่เข้มข้น, เสาวรส, ชาชบา, กรดแลกติกที่โดดเด่นและซับซ้อน">คั่วอ่อน</button>
+                <button class="roast-btn active" data-roast="medium" data-notes="รสเปรี้ยวอมหวานของแอปเปิ้ลแดง, คาราเมลมิลค์เนื้อนุ่ม, อบเชย, ปิดท้ายด้วยผงโกโก้หวานหอม">คั่วกลาง</button>
+                <button class="roast-btn" data-roast="dark" data-notes="เบอร์รี่แดงเชื่อม, ช็อกโกแลตทรัฟเฟิลเข้มข้น, บอดี้หนักแน่น, ความหวานของกากน้ำตาล">คั่วเข้ม</button>
+              </div>
+            </div>
+
+            <div class="tasting-box">
+              <span class="roast-label">บันทึกรสชาติ (Tasting Notes)</span>
+              <p class="tasting-desc" id="tasting-desc-2">รสเปรี้ยวอมหวานของแอปเปิ้ลแดง, คาราเมลมิลค์เนื้อนุ่ม, อบเชย, ปิดท้ายด้วยผงโกโก้หวานหอม</p>
+            </div>
+
+            <div class="bean-footer">
+              <div class="bean-price">฿560 <span>/ 250 กรัม</span></div>
+              <a href="https://line.me/R/ti/p/@aiceo" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="padding: 10px 20px;">
+                <span>สั่งซื้อล่วงหน้า</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- BEAN CARD 3 -->
+          <div class="bean-card" id="bean-3">
+            <div class="bean-header">
+              <div>
+                <span class="bean-origin">อินโดนีเซีย (Indonesia)</span>
+                <h3 class="bean-title">Sumatra Mandheling</h3>
+              </div>
+            </div>
+            <div class="bean-elevation">
+              <svg viewBox="0 0 24 24"><path d="M14 6l-1-2H5v17h2v-7h5l1 2h7V6h-6zm4 8h-4l-1-2H7V6h5l1 2h5v6z"/></svg>
+              <span>ทะเลสาบ Toba | ความสูง 1,200ม - 1,500ม</span>
+            </div>
+            
+            <div class="roast-control">
+              <span class="roast-label">เลือกโปรไฟล์การคั่ว</span>
+              <div class="roast-buttons">
+                <button class="roast-btn" data-roast="light" data-notes="กลิ่นดินมอสส์ป่า, สมุนไพรเสจ, ไม้ซีดาร์สดชื่น, ปิดท้ายด้วยเปลือกส้มรสเข้มข้น">คั่วอ่อน</button>
+                <button class="roast-btn" data-roast="medium" data-notes="ไม้ซีดาร์หวาน, ดาร์กช็อกโกแลต, ใบยาสูบ, ความหวานสมุนไพรอ่อนๆ ความเป็นกรดต่ำ">คั่วกลาง</button>
+                <button class="roast-btn active" data-roast="dark" data-notes="กากน้ำตาลเข้มข้น, ไม้โอ๊ครมควัน, ช็อกโกแลตขมเข้ม, บอดี้คล้ายน้ำเชื่อม, รสเข้มดิบแบบธรรมชาติดั้งเดิม">คั่วเข้ม</button>
+              </div>
+            </div>
+
+            <div class="tasting-box">
+              <span class="roast-label">บันทึกรสชาติ (Tasting Notes)</span>
+              <p class="tasting-desc" id="tasting-desc-3">กากน้ำตาลเข้มข้น, ไม้โอ๊ครมควัน, ช็อกโกแลตขมเข้ม, บอดี้คล้ายน้ำเชื่อม, รสเข้มดิบแบบธรรมชาติดั้งเดิม</p>
+            </div>
+
+            <div class="bean-footer">
+              <div class="bean-price">฿590 <span>/ 250 กรัม</span></div>
+              <a href="https://line.me/R/ti/p/@aiceo" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="padding: 10px 20px;">
+                <span>สั่งซื้อล่วงหน้า</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- BEAN CARD 4 -->
+          <div class="bean-card" id="bean-4">
+            <div class="bean-header">
+              <div>
+                <span class="bean-origin">เคนยา (Kenya)</span>
+                <h3 class="bean-title">Nyeri Kirinyaga</h3>
+              </div>
+            </div>
+            <div class="bean-elevation">
+              <svg viewBox="0 0 24 24"><path d="M14 6l-1-2H5v17h2v-7h5l1 2h7V6h-6zm4 8h-4l-1-2H7V6h5l1 2h5v6z"/></svg>
+              <span>ภูมิภาค Mt. Kenya | ความสูง 1,750ม</span>
+            </div>
+            
+            <div class="roast-control">
+              <span class="roast-label">เลือกโปรไฟล์การคั่ว</span>
+              <div class="roast-buttons">
+                <button class="roast-btn active" data-roast="light" data-notes="แบล็กคอร์แรนต์เข้มข้น, องุ่นแดงฉ่ำน้ำ, กรดคล้ายรูบาร์บ, กลิ่นคล้ายใบมะเขือเทศ, ปิดท้ายหวานฉ่ำ">คั่วอ่อน</button>
+                <button class="roast-btn" data-roast="medium" data-notes="น้ำเชื่อมเชอร์รี่ดำ, รสผลไม้แบล็กคอร์แรนต์สีแดง, ความหวานน้ำตาลทรายแดง, จบแบบไวน์ขาวแห้ง">คั่วกลาง</button>
+                <button class="roast-btn" data-roast="dark" data-notes="ลูกพลัมย่าง, กากน้ำตาลเคลือบ, องุ่นคาราเมล, กลิ่นอายของเหล้าช็อกโกแลตเข้มข้น">คั่วเข้ม</button>
+              </div>
+            </div>
+
+            <div class="tasting-box">
+              <span class="roast-label">บันทึกรสชาติ (Tasting Notes)</span>
+              <p class="tasting-desc" id="tasting-desc-4">แบล็กคอร์แรนต์เข้มข้น, องุ่นแดงฉ่ำน้ำ, กรดคล้ายรูบาร์บ, กลิ่นคล้ายใบมะเขือเทศ, ปิดท้ายหวานฉ่ำ</p>
+            </div>
+
+            <div class="bean-footer">
+              <div class="bean-price">฿720 <span>/ 250 กรัม</span></div>
+              <a href="https://line.me/R/ti/p/@aiceo" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="padding: 10px 20px;">
+                <span>สั่งซื้อล่วงหน้า</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- BEAN CARD 5 -->
+          <div class="bean-card" id="bean-5">
+            <div class="bean-header">
+              <div>
+                <span class="bean-origin">คอสตาริกา (Costa Rica)</span>
+                <h3 class="bean-title">Tarrazu La Pastora</h3>
+              </div>
+            </div>
+            <div class="bean-elevation">
+              <svg viewBox="0 0 24 24"><path d="M14 6l-1-2H5v17h2v-7h5l1 2h7V6h-6zm4 8h-4l-1-2H7V6h5l1 2h5v6z"/></svg>
+              <span>แหล่งปลูก Tarrazú | ความสูง 1,450ม - 1,800ม</span>
+            </div>
+            
+            <div class="roast-control">
+              <span class="roast-label">เลือกโปรไฟล์การคั่ว</span>
+              <div class="roast-buttons">
+                <button class="roast-btn" data-roast="light" data-notes="ดอกส้ม, ความหวานน้ำผึ้งป่าสะอาด, ลูกแอปริคอทสดชื่น, โครงสร้างรสชาติที่ละเอียดอ่อน">คั่วอ่อน</button>
+                <button class="roast-btn active" data-roast="medium" data-notes="น้ำผึ้งป่า, แอปริคอทหวานหอม, เฮเซลนัทเนื้อเนียน, รสเปรี้ยวบางเบาจากมะนาวที่สมดุล">คั่วกลาง</button>
+                <button class="roast-btn" data-roast="dark" data-notes="เนยเฮเซลนัทคั่ว, น้ำเชื่อมน้ำตาลทรายแดงเข้มข้น, ช็อกโกแลตเคลือบหนา, รสโกโก้ค้างคาใจยาวนาน">คั่วเข้ม</button>
+              </div>
+            </div>
+
+            <div class="tasting-box">
+              <span class="roast-label">บันทึกรสชาติ (Tasting Notes)</span>
+              <p class="tasting-desc" id="tasting-desc-5">น้ำผึ้งป่า, แอปริคอทหวานหอม, เฮเซลนัทเนื้อเนียน, รสเปรี้ยวบางเบาจากมะนาวที่สมดุล</p>
+            </div>
+
+            <div class="bean-footer">
+              <div class="bean-price">฿620 <span>/ 250 กรัม</span></div>
+              <a href="https://line.me/R/ti/p/@aiceo" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="padding: 10px 20px;">
+                <span>สั่งซื้อล่วงหน้า</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- BEAN CARD 6 -->
+          <div class="bean-card" id="bean-6">
+            <div class="bean-header">
+              <div>
+                <span class="bean-origin">กัวเตมาลา (Guatemala)</span>
+                <h3 class="bean-title">Antigua Los Volcanes</h3>
+              </div>
+            </div>
+            <div class="bean-elevation">
+              <svg viewBox="0 0 24 24"><path d="M14 6l-1-2H5v17h2v-7h5l1 2h7V6h-6zm4 8h-4l-1-2H7V6h5l1 2h5v6z"/></svg>
+              <span>หุบเขา Antigua | ความสูง 1,500ม - 1,650ม</span>
+            </div>
+            
+            <div class="roast-control">
+              <span class="roast-label">เลือกโปรไฟล์การคั่ว</span>
+              <div class="roast-buttons">
+                <button class="roast-btn" data-roast="light" data-notes="กลิ่นหอมของลูกจันทน์เทศ, เปลือกแอปเปิ้ลแดง, กรดส้มแมนดารินสดชื่น, จบหวานสะอาดหมดจด">คั่วอ่อน</button>
+                <button class="roast-btn active" data-roast="medium" data-notes="กลิ่นดอกไม้อ่อนหวาน, ครีมดาร์กช็อกโกแลต, ไซเดอร์แอปเปิ้ลผสมเครื่องเทศ, ถั่วพีแคนคั่ว">คั่วกลาง</button>
+                <button class="roast-btn" data-roast="dark" data-notes="กลิ่นควันหอมเข้มข้น, ดาร์กช็อกโกแลตแท่งหนา, บอดี้คล้ายกากน้ำตาล, ปิดท้ายเข้มข้นหนักแน่น">คั่วเข้ม</button>
+              </div>
+            </div>
+
+            <div class="tasting-box">
+              <span class="roast-label">บันทึกรสชาติ (Tasting Notes)</span>
+              <p class="tasting-desc" id="tasting-desc-6">กลิ่นดอกไม้อ่อนหวาน, ครีมดาร์กช็อกโกแลต, ไซเดอร์แอปเปิ้ลผสมเครื่องเทศ, ถั่วพีแคนคั่ว</p>
+            </div>
+
+            <div class="bean-footer">
+              <div class="bean-price">฿580 <span>/ 250 กรัม</span></div>
+              <a href="https://line.me/R/ti/p/@aiceo" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="padding: 10px 20px;">
+                <span>สั่งซื้อล่วงหน้า</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- DRINKS & MATCHA MENU SECTION -->
+    <section class="section menu" id="menu">
+      <div class="container">
+        
+        <div class="section-title-wrap">
+          <span class="section-subtitle" style="color: var(--color-accent-gold);">เครื่องดื่มรังสรรค์พิเศษ</span>
+          <h2 class="section-title">เอสเพรสโซ่ และ มัทฉะ บาร์</h2>
+        </div>
+
+        <div class="menu-grid">
+          
+          <!-- DRINK 1 -->
+          <div class="menu-card">
+            <div class="menu-card-header">
+              <div class="menu-icon-wrapper">
+                <!-- Espresso Cup Icon -->
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M17 8h1a4 4 0 1 1 0 8h-1"></path>
+                  <path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V8z"></path>
+                  <line x1="6" y1="2" x2="6" y2="4"></line>
+                  <line x1="10" y1="2" x2="10" y2="4"></line>
+                  <line x1="14" y1="2" x2="14" y2="4"></line>
+                </svg>
+              </div>
+              <div class="menu-card-price">฿100</div>
+            </div>
+            <div>
+              <h3 class="menu-card-title">เอสเพรสโซ่ (Espresso)</h3>
+              <p class="menu-card-desc">รสชาติเข้มข้นและซับซ้อน เอสเพรสโซ่ 2 ช็อตสกัดจากเมล็ดกาแฟเบลนด์พิเศษของร้าน ให้โทนดาร์กช็อกโกแลตและเปลือกส้ม</p>
+            </div>
+            <div class="menu-card-footer">
+              <a href="https://line.me/R/ti/p/@aiceo" target="_blank" rel="noopener noreferrer" class="btn-menu-order" aria-label="Pre-order Espresso">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- DRINK 2 -->
+          <div class="menu-card">
+            <div class="menu-card-header">
+              <div class="menu-icon-wrapper">
+                <!-- Coffee mug Icon -->
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M17 8h1a4 4 0 1 1 0 8h-1"></path>
+                  <path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V8z"></path>
+                  <line x1="6" y1="2" x2="6" y2="4"></line>
+                  <line x1="10" y1="2" x2="10" y2="4"></line>
+                  <line x1="14" y1="2" x2="14" y2="4"></line>
+                </svg>
+              </div>
+              <div class="menu-card-price">฿110</div>
+            </div>
+            <div>
+              <h3 class="menu-card-title">อเมริกาโน่ (Americano)</h3>
+              <p class="menu-card-desc">เอสเพรสโซ่สองช็อตเติมน้ำร้อนคุณภาพสูง ให้บอดี้ที่นุ่มนวล สมดุล พร้อมรสหวานสะอาดตอนท้ายที่ยอดเยี่ยม</p>
+            </div>
+            <div class="menu-card-footer">
+              <a href="https://line.me/R/ti/p/@aiceo" target="_blank" rel="noopener noreferrer" class="btn-menu-order" aria-label="Pre-order Americano">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- DRINK 3 -->
+          <div class="menu-card">
+            <div class="menu-card-header">
+              <div class="menu-icon-wrapper">
+                <!-- Frothy cappuccino Icon -->
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M17 8h1a4 4 0 1 1 0 8h-1"></path>
+                  <path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V8z"></path>
+                  <line x1="6" y1="2" x2="6" y2="4"></line>
+                  <line x1="10" y1="2" x2="10" y2="4"></line>
+                  <line x1="14" y1="2" x2="14" y2="4"></line>
+                </svg>
+              </div>
+              <div class="menu-card-price">฿120</div>
+            </div>
+            <div>
+              <h3 class="menu-card-title">คาปูชิโน่ (Cappuccino)</h3>
+              <p class="menu-card-desc">ความลงตัวแบบสามส่วน เอสเพรสโซ่ช็อตสกัดเข้มข้น ผสมเข้ากับนมร้อนสตรีมเนื้อละเอียดและโฟมนมหนานุ่ม</p>
+            </div>
+            <div class="menu-card-footer">
+              <a href="https://line.me/R/ti/p/@aiceo" target="_blank" rel="noopener noreferrer" class="btn-menu-order" aria-label="Pre-order Cappuccino">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- DRINK 4 -->
+          <div class="menu-card">
+            <div class="menu-card-header">
+              <div class="menu-icon-wrapper">
+                <!-- Latte art Icon -->
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2v20"></path>
+                  <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                </svg>
+              </div>
+              <div class="menu-card-price">฿130</div>
+            </div>
+            <div>
+              <h3 class="menu-card-title">ลาเต้ร้อน (Caffe Latte)</h3>
+              <p class="menu-card-desc">ละมุนกลมกล่อม เอสเพรสโซ่สองช็อตเทผสานกับนมอุ่นสตีมเนื้อเนียนละเอียด ปิดท้ายด้วยลวดลายลาเต้อาร์ตที่งดงาม</p>
+            </div>
+            <div class="menu-card-footer">
+              <a href="https://line.me/R/ti/p/@aiceo" target="_blank" rel="noopener noreferrer" class="btn-menu-order" aria-label="Pre-order Caffe Latte">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- DRINK 5 -->
+          <div class="menu-card">
+            <div class="menu-card-header">
+              <div class="menu-icon-wrapper">
+                <!-- Mocha Icon -->
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+                  <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+                  <path d="M6 2v4"></path>
+                  <path d="M10 2v4"></path>
+                  <path d="M14 2v4"></path>
+                </svg>
+              </div>
+              <div class="menu-card-price">฿140</div>
+            </div>
+            <div>
+              <h3 class="menu-card-title">มอคค่าร้อน (Caffe Mocha)</h3>
+              <p class="menu-card-desc">รสชาติที่เย้ายวนใจ ผสมผสานเอสเพรสโซ่กับน้ำเชื่อมช็อกโกแลตออร์แกนิกเนื้อเหนียวเข้มข้นและนมอุ่นสตีม</p>
+            </div>
+            <div class="menu-card-footer">
+              <a href="https://line.me/R/ti/p/@aiceo" target="_blank" rel="noopener noreferrer" class="btn-menu-order" aria-label="Pre-order Caffe Mocha">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- DRINK 6 -->
+          <div class="menu-card">
+            <div class="menu-card-header">
+              <div class="menu-icon-wrapper">
+                <!-- Matcha bowl Icon -->
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M2 8h20v6a8 8 0 0 1-16 0V8z"></path>
+                  <line x1="6" y1="2" x2="6" y2="8"></line>
+                  <line x1="12" y1="2" x2="12" y2="8"></line>
+                  <line x1="18" y1="2" x2="18" y2="8"></line>
+                </svg>
+              </div>
+              <div class="menu-card-price">฿150</div>
+            </div>
+            <div>
+              <h3 class="menu-card-title">มัทฉะลาเต้เกรดพิธีการ</h3>
+              <p class="menu-card-desc">มัทฉะเกรดพิธีการอุจิบดด้วยหินชั้นเลิศ ชงผสมกับนมโอ๊ตอุ่นสตีมเนื้อนุ่มละมุน หอมอร่อยกลมกล่อมเป็นธรรมชาติ</p>
+            </div>
+            <div class="menu-card-footer">
+              <a href="https://line.me/R/ti/p/@aiceo" target="_blank" rel="noopener noreferrer" class="btn-menu-order" aria-label="Pre-order Ceremonial Matcha Latte">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- PRE-ORDER LINE CALLOUT -->
+    <section class="cta-banner" id="visit">
+      <div class="container cta-banner-content">
+        <h2>ไม่ต้องรอคิว สั่งซื้อล่วงหน้าได้เลย</h2>
+        <p>สั่งกาแฟดริปซิงเกิลออริจินถ้วยโปรดของคุณ หรือมัทฉะลาเต้ร้อนล่วงหน้าผ่านช่องทาง LINE สะดวกรวดเร็วในการรับสินค้าหน้าร้านหรือสั่งซื้อเมล็ดกาแฟคั่วใหม่ได้ตามที่คุณต้องการ</p>
+        <a href="https://line.me/R/ti/p/@aiceo" target="_blank" rel="noopener noreferrer" class="btn cta-line-btn">
+          <!-- LINE Chat Icon -->
+          <svg viewBox="0 0 24 24" fill="currentColor" style="width: 20px; height: 20px;">
+            <path d="M24 10.3c0-4.6-4.9-8.3-11-8.3S2 5.7 2 10.3c0 4.1 3.9 7.6 9.2 8.2l-.7 2.6c-.1.3 0 .6.2.8.2.2.4.2.6.1l3.1-1.8c4.9-.7 8.9-4.2 8.9-8.2z"/>
+          </svg>
+          <span>สั่งซื้อล่วงหน้าผ่าน LINE (@aiceo)</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          
+          <!-- Column 1: Info -->
+          <div class="footer-col footer-about">
+            <a href="#" class="logo">
+              <svg viewBox="0 0 512 512">
+                <path d="M125.7 34.6c-17.5 10.1-31.9 26.8-39 46.8-8.2 22.8-5.3 48.5 7.4 69.8 17 28.5 46.8 47.9 79.5 51.8 12.3 1.5 24.8 .7 36.9-2.3L125.7 34.6zM224 81.3v132.8c12.2-4.5 23.6-11.8 33.3-21.5l-33.3-111.3zm120-19c-11-9-23.7-15.6-37.4-19.4L293.3 154c16.3-2.7 32-9.8 45-20.8 13.9-11.8 23.1-28.7 25.4-46.9 2.3-18.2-2.7-36.4-13.7-50.6l-6-7.4zm10.7 131c-13.6 11.5-30.5 18.7-48.4 20.8L350.5 358c21.2-5.7 40-18.4 53-35.8 17.5-23.4 23.5-53.4 16.5-82.1-7-28.7-25-53.2-49.8-67.6l-5.5-3.2zm-182 176.4c-12.8 1.5-25.7 .3-38-3.6L201 475.6c17.5-10.1 31.9-26.8 39-46.8 8.2-22.8 5.3-48.5-7.4-69.8-17-28.5-46.8-47.9-79.5-51.8zm33.3 21l33.3 111.3c11 9 23.7 15.6 37.4 19.4L262.7 358c-16.3 2.7-32 9.8-45 20.8-13.9 11.8-23.1 28.7-25.4 46.9-2.3 18.2 2.7 36.4 13.7 50.6l6 7.4c13.6-11.5 30.5-18.7 48.4-20.8l-42.1-144.3z"/>
+              </svg>
+              Origins Coffee
+            </a>
+            <p>เราเชื่อว่ากาแฟเป็นมากกว่าเครื่องดื่มคาเฟอีน แต่มันคือศิลปะและการรังสรรค์ ด้วยการให้เกียรติเกษตรกรผู้ปลูก การคั่วทางวิทยาศาสตร์ และการชงด้วยความรัก เราพร้อมสร้างสรรค์ประสบการณ์การดื่มอันเป็นเอกลักษณ์ให้กับคุณ</p>
+            <div class="social-links">
+              <a href="#" class="social-btn" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4.001 4.001 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+              </a>
+              <a href="#" class="social-btn" aria-label="Facebook">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+              </a>
+              <a href="#" class="social-btn" aria-label="Twitter">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Column 2: Quick Links -->
+          <div class="footer-col">
+            <h3>สำรวจ</h3>
+            <ul class="footer-links-list">
+              <li><a href="#">หน้าแรก</a></li>
+              <li><a href="#beans">เมล็ดกาแฟคั่วพิเศษ</a></li>
+              <li><a href="#menu">เมนูเครื่องดื่ม</a></li>
+              <li><a href="#visit">ที่ตั้งร้านและติดต่อ</a></li>
+            </ul>
+          </div>
+
+          <!-- Column 3: Contact & Hours -->
+          <div class="footer-col">
+            <h3>โรงคั่วกาแฟพิเศษ</h3>
+            <div class="contact-item">
+              <!-- Location Icon -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <span>108 ซอยบริวมาสเตอร์, เขตกาแฟพิเศษ, กรุงเทพฯ 10110</span>
+            </div>
+            <div class="contact-item">
+              <!-- Phone Icon -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              <span>+66 81 234 5678</span>
+            </div>
+            <div class="contact-item">
+              <!-- Clock Icon -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              <div>
+                <p>จันทร์ - ศุกร์: 07:00 น. - 18:00 น.</p>
+                <p>เสาร์ - อาทิตย์: 08:00 น. - 19:00 น.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ACCESSIBILITY SECTION -->
+        <div class="accessibility-box">
+          <div class="accessibility-title">
+            <!-- Eye icon -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+            <span>การเข้าถึง: โหมดตาบอดสี (แสดงผลขาว-ดำความคมชัดสูง)</span>
+          </div>
+          <div>
+            <label class="toggle-switch" for="colorblind-toggle">
+              <input type="checkbox" id="colorblind-toggle" aria-label="เปิดโหมดตาบอดสี">
+              <span class="slider"></span>
+            </label>
+          </div>
+        </div>
+
+        <!-- BOTTOM FOOTER -->
+        <div class="footer-bottom">
+          <p>&copy; 2026 Origins Coffee Roasters. สงวนลิขสิทธิ์.</p>
+          <p>รังสรรค์ด้วยมือเพื่อคนรักกาแฟอย่างแท้จริง</p>
+        </div>
+
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- -------------------------------------------------------------
+       INTERACTIONS LOGIC (JAVASCRIPT)
+       ------------------------------------------------------------- -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      
+      /* -----------------------------------------------------------
+         1. SKELETON LOADER TIMEOUT
+         ----------------------------------------------------------- */
+      setTimeout(() => {
+        const skeleton = document.getElementById('skeleton-screen');
+        const content = document.getElementById('app-content');
+        
+        if (skeleton && content) {
+          skeleton.style.transition = 'opacity 0.6s ease';
+          skeleton.style.opacity = '0';
+          
+          content.classList.remove('app-hidden');
+          content.classList.add('app-visible');
+          
+          setTimeout(() => {
+            skeleton.style.display = 'none';
+          }, 600);
+        }
+      }, 1200);
+
+      /* -----------------------------------------------------------
+         2. NAVIGATION HEADER SCROLL EFFECT
+         ----------------------------------------------------------- */
+      const header = document.getElementById('main-header');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      });
+
+      /* -----------------------------------------------------------
+         3. MOBILE NAVIGATION MENU TOGGLE
+         ----------------------------------------------------------- */
+      const menuToggle = document.getElementById('menu-toggle');
+      const navMenu = document.getElementById('nav-menu');
+      
+      if (menuToggle && navMenu) {
+        menuToggle.addEventListener('click', () => {
+          navMenu.classList.toggle('active');
+          
+          // Toggle Menu Icon (hamburger to close icon)
+          const isOpen = navMenu.classList.contains('active');
+          menuToggle.innerHTML = isOpen 
+            ? `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                 <line x1="18" y1="6" x2="6" y2="18"></line>
+                 <line x1="6" y1="6" x2="18" y2="18"></line>
+               </svg>`
+            : `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                 <line x1="3" y1="12" x2="21" y2="12"></line>
+                 <line x1="3" y1="6" x2="21" y2="6"></line>
+                 <line x1="3" y1="18" x2="21" y2="18"></line>
+               </svg>`;
+        });
+
+        // Close menu when a link is clicked
+        const navLinks = document.querySelectorAll('.nav-link, #nav-preorder-btn');
+        navLinks.forEach(link => {
+          link.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+            menuToggle.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+               <line x1="3" y1="12" x2="21" y2="12"></line>
+               <line x1="3" y1="6" x2="21" y2="6"></line>
+               <line x1="3" y1="18" x2="21" y2="18"></line>
+             </svg>`;
+          });
+        });
+      }
+
+      /* -----------------------------------------------------------
+         4. INTERACTIVE BEAN ROAST LEVEL SELECTOR
+         ----------------------------------------------------------- */
+      const beanCards = document.querySelectorAll('.bean-card');
+      
+      beanCards.forEach((card, index) => {
+        const indexNum = index + 1;
+        const roastBtns = card.querySelectorAll('.roast-btn');
+        const tastingDesc = document.getElementById(`tasting-desc-${indexNum}`);
+        
+        roastBtns.forEach(btn => {
+          btn.addEventListener('click', () => {
+            // Remove active class from other buttons in the same card
+            roastBtns.forEach(b => b.classList.remove('active'));
+            
+            // Set active class on clicked button
+            btn.classList.add('active');
+            
+            // Fetch tasting notes from data attribute
+            const notes = btn.getAttribute('data-notes');
+            
+            // Apply fade animation and update tasting notes
+            if (tastingDesc) {
+              tastingDesc.style.opacity = '0';
+              setTimeout(() => {
+                tastingDesc.textContent = notes;
+                tastingDesc.style.opacity = '1';
+              }, 200);
+            }
+          });
+        });
+      });
+
+      /* -----------------------------------------------------------
+         5. ACCESSIBILITY: COLORBLIND MODE
+         ----------------------------------------------------------- */
+      const colorblindToggle = document.getElementById('colorblind-toggle');
+      const floatingAccessBtn = document.getElementById('floating-accessibility-btn');
+      const floatingAccessText = document.getElementById('floating-accessibility-text');
+
+      function updateColorblindState(isEnabled) {
+        if (isEnabled) {
+          document.body.classList.add('colorblind-mode');
+          if (colorblindToggle) colorblindToggle.checked = true;
+          if (floatingAccessText) floatingAccessText.textContent = 'ปิดโหมดตาบอดสี';
+          localStorage.setItem('colorblindMode', 'true');
+        } else {
+          document.body.classList.remove('colorblind-mode');
+          if (colorblindToggle) colorblindToggle.checked = false;
+          if (floatingAccessText) floatingAccessText.textContent = 'โหมดตาบอดสี (ขาว-ดำ)';
+          localStorage.setItem('colorblindMode', 'false');
+        }
+      }
+
+      // Load saved preference
+      const isColorblindMode = localStorage.getItem('colorblindMode') === 'true';
+      updateColorblindState(isColorblindMode);
+
+      if (colorblindToggle) {
+        colorblindToggle.addEventListener('change', () => {
+          updateColorblindState(colorblindToggle.checked);
+        });
+      }
+
+      if (floatingAccessBtn) {
+        floatingAccessBtn.addEventListener('click', () => {
+          const currentlyEnabled = document.body.classList.contains('colorblind-mode');
+          updateColorblindState(!currentlyEnabled);
+        });
+      }
+      
+    });
+  </script>
+</body>
+</html>
